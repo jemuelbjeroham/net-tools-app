@@ -1,0 +1,21 @@
+[project]
+name = "net-tools-app"
+version = "0.1.0"
+description = "A FastAPI app that exposes the net-ops-kb-rag and other network related tools"
+readme = "README.md"
+authors = [
+    { name = "Jemuel B Jeroham", email = "jemuelbjeroham@outlook.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi>=0.141.1",
+    "ruff>=0.16.5",
+    "uvicorn>=0.52.4",
+]
+
+[project.scripts]
+net-tools-app = "net_tools_app:main"
+
+[build-system]
+requires = ["uv_build>=0.12.1,<0.13.0"]
+build-backend = "uv_build"
