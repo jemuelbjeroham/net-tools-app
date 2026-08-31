@@ -3,4 +3,4 @@ from netops_ingestion.services.knowledge_base_service import KnowledgeBaseServic
 
 
 def get_knowledge_base(request: Request) -> KnowledgeBaseService:
-    return request.state.knowledge_base
+    return request.app.state.knowledge_base
