@@ -24,3 +24,6 @@ build-backend = "uv_build"
 
 [tool.uv.sources]
 net-ops-kb-rag = { path = "../net-ops-kb-rag", editable = true }
+
+[tool.ruff.lint]
+extend-ignore = ["B008"]

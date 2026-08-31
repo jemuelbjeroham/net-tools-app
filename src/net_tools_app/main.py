@@ -3,6 +3,8 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from netops_ingestion.services.factory import create_knowledge_base_service
 
+from net_tools_app.routes import router
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -10,6 +12,8 @@ async def lifespan(app: FastAPI):
     yield {"knowledge_base": knowledge_base}
 
 app = FastAPI(title="Network Operations Tools API app", version="0.1.0")
+
+app.include_router(router)
 
 @app.get("/health")
 def health_check() -> dict[str, str]:

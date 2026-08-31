@@ -1,6 +1,5 @@
 from fastapi.testclient import TestClient
 
-from net_tools_app.dependencies import get_knowledge_base
 from net_tools_app.main import app
 
 
