@@ -10,9 +10,14 @@ requires-python = ">=3.14"
 dependencies = [
     "fastapi>=0.141.1",
     "net-ops-kb-rag",
+    "torch>=2.13.0,<2.14.0",
+    "uvicorn>=0.52.4",
+]
+
+[dependency-groups]
+dev = [
     "pytest>=9.1.1",
     "ruff>=0.16.5",
-    "uvicorn>=0.52.4",
 ]
 
 [project.scripts]
@@ -24,6 +29,14 @@ build-backend = "uv_build"
 
 [tool.uv.sources]
 net-ops-kb-rag = { path = "../net-ops-kb-rag", editable = true }
+torch = [
+    { index = "pytorch-cpu", marker = "sys_platform == 'linux'" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
 
 [tool.ruff.lint]
 extend-ignore = ["B008"]
